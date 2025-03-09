@@ -1,0 +1,25 @@
+.tf-soft .dropdown .dropdown-menu {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s,
+    height 0.3s ease;
+  z-index: 10 !important;
+  background-color: #1e1e1e !important;
+  width: inherit;
+  margin-top: 1rem;
+}
+
+.tf-soft .dropdown .dropdown-menu.active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  transform: translateY(0);
+}
+
+.tf-soft .dropdown-item:hover {
+  cursor: pointer !important;
+}

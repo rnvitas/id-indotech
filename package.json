@@ -1,21 +1,47 @@
 {
-  "name": "testsequelize",
+  "name": "id-indotech",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migration:create": "dotenv -- sequelize-cli migration:create",
+    "migrate": "dotenv -- sequelize-cli db:migrate",
+    "migrate:rollback": "dotenv -- sequelize-cli db:migrate:undo",
+    "migrate:rollback:all": "dotenv -- sequelize-cli db:migrate:undo:all"
   },
   "dependencies": {
+    "@iconify/icons-mdi": "^1.2.48",
+    "@iconify/react": "^5.2.0",
+    "@tanstack/react-query": "^5.67.2",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
+    "axios": "^1.8.1",
+    "bootstrap": "^4.6.2",
+    "leaflet": "^1.9.4",
+    "mysql2": "^3.12.0",
+    "next": "15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.1"
+    "react-leaflet": "^5.0.0",
+    "sass": "^1.85.1",
+    "sequelize": "^6.37.6",
+    "sweetalert2": "^11.17.2",
+    "swiper": "^11.2.5",
+    "swr": "^2.3.2"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20.17.23",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-flatpickr": "^3.8.11",
+    "@types/react-transition-group": "^4.4.12",
+    "dotenv-cli": "^8.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
-    "@eslint/eslintrc": "^3"
+    "sequelize-cli": "^6.6.2"
   }
 }
