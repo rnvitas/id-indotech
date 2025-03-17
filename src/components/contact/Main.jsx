@@ -13,6 +13,7 @@ const customIcon = new L.Icon({
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
 });
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Main() {
   const [input, setInput] = useState({
@@ -32,7 +33,7 @@ export default function Main() {
     setLoading(true);
 
     try {
-      const res = await axios.post("/api/contact", input);
+      const res = await axios.post(`${basePath}/api/contact`, input);
 
       Swal.fire({
         icon: "success",

@@ -4,8 +4,10 @@ import Card from "./Card";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const fetchBlogs = async (page, search) => {
-  let url = `/api/blogs?page=${page}&limit=6`;
+  let url = `${basePath}/api/blogs?page=${page}&limit=6`;
   if (search) {
     url += `&search=${search}`;
   }

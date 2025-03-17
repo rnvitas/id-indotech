@@ -6,6 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import useSWR from "swr";
 import Modal from "../ui/Modal";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const fetcherCategory = (url) => axios.get(url).then((res) => res.data.data);
 const fetcherProducts = (url) => axios.get(url).then((res) => res.data.data);
@@ -17,7 +18,10 @@ export default function Product() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const { data: category } = useSWR(`/api/category/`, fetcherCategory);
+  const { data: category } = useSWR(
+    `${basePath}/api/category/`,
+    fetcherCategory
+  );
 
   const {
     data: products,
@@ -25,8 +29,8 @@ export default function Product() {
     isLoading,
   } = useSWR(
     categoryId
-      ? `/api/products?page=${page}&limit=8&sort=${sort}&categoryId=${categoryId}`
-      : `/api/products?page=${page}&limit=8&sort=${sort}`,
+      ? `${basePath}/api/products?page=${page}&limit=8&sort=${sort}&categoryId=${categoryId}`
+      : `${basePath}/api/products?page=${page}&limit=8&sort=${sort}`,
     fetcherProducts
   );
 

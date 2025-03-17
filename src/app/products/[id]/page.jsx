@@ -16,6 +16,7 @@ import PriceFormat from "@/components/utils/PriceFormat";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data.product);
 const fetcherOther = (url) => axios.get(url).then((res) => res.data.data);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Detail() {
   const { id } = useParams();
@@ -25,9 +26,12 @@ export default function Detail() {
     data: product,
     error,
     isLoading,
-  } = useSWR(id ? `/api/products/${id}` : null, fetcher);
+  } = useSWR(id ? `${basePath}/api/products/${id}` : null, fetcher);
 
-  const { data: etcProducts } = useSWR(`/api/products/`, fetcherOther);
+  const { data: etcProducts } = useSWR(
+    `${basePath}/api/products/`,
+    fetcherOther
+  );
   const otherProducts = etcProducts?.filter(
     (item) => String(item.id) !== String(id)
   );

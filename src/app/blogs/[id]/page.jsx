@@ -5,6 +5,7 @@ import useSWR from "swr";
 import DateFormat from "@/components/utils/DateFormat";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data.blogs);
 const fetcherEtc = (url) => axios.get(url).then((res) => res.data);
@@ -14,7 +15,7 @@ export default function DetailBlog() {
     data: blog,
     error,
     isLoading,
-  } = useSWR(id ? `/api/blogs/${id}` : null, fetcher);
+  } = useSWR(id ? `${basePath}/api/blogs/${id}` : null, fetcher);
 
   const { data: etcProducts } = useSWR(`/api/blogs?page=1&limit=4`, fetcherEtc);
   // console.log(fetcher);

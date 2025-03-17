@@ -13,10 +13,11 @@ import axios from "axios";
 import useSWR from "swr";
 import Modal from "../ui/Modal";
 import { useEffect, useState } from "react";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 export default function Hero() {
-  const { data } = useSWR(`/api/banner`, fetcher);
+  const { data } = useSWR(`${basePath}/api/banner`, fetcher);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const banners = data?.banner || [];

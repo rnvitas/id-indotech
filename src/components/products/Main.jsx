@@ -6,9 +6,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const fetcher = (url) => axios.get(url).then((res) => res.data.data);
 const fetchProducts = async (page, sort, search, categoryId) => {
-  let url = `/api/products?page=${page}&limit=12&sort=${sort}&search=${search}`;
+  let url = `${basePath}/api/products?page=${page}&limit=12&sort=${sort}&search=${search}`;
   if (categoryId) {
     url += `&categoryId=${categoryId}`;
   }
@@ -30,7 +31,7 @@ export default function Main() {
 
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const { data: category } = useSWR(`/api/category`, fetcher);
+  const { data: category } = useSWR(`${basePath}/api/category`, fetcher);
 
   const {
     data: products,

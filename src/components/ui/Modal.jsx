@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useSWR from "swr";
 import Swal from "sweetalert2";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const fetcherProducts = (url) => axios.get(url).then((res) => res.data.data);
 
 export default function Modal({ product, closeModal, showModal }) {
@@ -13,7 +15,7 @@ export default function Modal({ product, closeModal, showModal }) {
     email: "",
   });
 
-  const { data: order } = useSWR(`/api/products`, fetcherProducts);
+  const { data: order } = useSWR(`${basePath}/api/products`, fetcherProducts);
   const orderSubject = order?.find(
     (item) => String(item.id) !== String(product)
   );
@@ -60,7 +62,7 @@ export default function Modal({ product, closeModal, showModal }) {
         },
       });
 
-      const response = await axios.post(`/api/order`, input);
+      const response = await axios.post(`${basePath}/api/order`, input);
       Swal.close(); // Tutup loading setelah sukses
 
       Swal.fire({
