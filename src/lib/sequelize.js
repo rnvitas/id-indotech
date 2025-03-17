@@ -20,7 +20,7 @@ const sequelize = new Sequelize({
     await sequelize.authenticate();
     console.log("Database connection successful");
     // await sequelize.sync({ alter: true });
-    await sequelize.sync();
+    // await sequelize.sync();
   } catch (error) {
     console.error("Database connection error:", error);
   }
