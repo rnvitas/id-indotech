@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useSWR from "swr";
+import Swal from "sweetalert2";
 const fetcherProducts = (url) => axios.get(url).then((res) => res.data.data);
 
 export default function Modal({ product, closeModal, showModal }) {
@@ -12,60 +13,84 @@ export default function Modal({ product, closeModal, showModal }) {
     email: "",
   });
 
-  const {
-    data: order,
-    error,
-    isLoading,
-  } = useSWR(`/api/products`, fetcherProducts);
+  const { data: order } = useSWR(`/api/products`, fetcherProducts);
   const orderSubject = order?.find(
     (item) => String(item.id) !== String(product)
   );
-  // console.log(orderSubject);
 
   useEffect(() => {
     if (showModal && product) {
-      if (product) {
-        setInput({
-          productId: product || "",
-          name: "",
-          wa: "",
-          email: "",
-        });
-      } else {
-        console.error("Product ID is not available in the product:", product);
-      }
+      setInput({
+        productId: product || "",
+        name: "",
+        wa: "",
+        email: "",
+      });
     }
   }, [showModal, product]);
 
-  // Handle submit dan kirim data ke API
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting input:", input);
+
     if (!input.name || !input.wa || !input.email) {
-      alert("Please fill all fields");
+      Swal.fire({
+        icon: "warning",
+        title: "Missing Fields",
+        text: "Please fill in all fields before submitting.",
+      });
       return;
     }
 
     if (!input.productId) {
-      alert("Product ID is missing!");
+      Swal.fire({
+        icon: "error",
+        title: "Product Error",
+        text: "Product ID is missing!",
+      });
       return;
     }
 
     try {
+      Swal.fire({
+        title: "Submitting...",
+        text: "Please wait while we process your order.",
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
       const response = await axios.post(`/api/order`, input);
-      const whatsappMessage = `Hi, I would like to order: ${orderSubject?.title}. Name: ${input.name}, Emaol:${input.email}, WhatsApp: ${input.wa}`;
+      Swal.close(); // Tutup loading setelah sukses
+
+      Swal.fire({
+        icon: "success",
+        title: "Order Successful",
+        text: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      // Redirect ke WhatsApp
+      const whatsappMessage = `Hi, I would like to order: ${orderSubject?.title}. Name: ${input.name}, Email: ${input.email}, WhatsApp: ${input.wa}`;
       const whatsappUrl = `https://wa.me/081818134331?text=${encodeURIComponent(
         whatsappMessage
       )}`;
-
-      window.location.href = whatsappUrl;
-      closeModal();
+      setTimeout(() => {
+        window.location.href = whatsappUrl;
+        closeModal();
+      }, 1600);
     } catch (error) {
-      console.error("Error creating order:", error);
-      alert("An error occurred. Please try again.");
+      Swal.close();
+      Swal.fire({
+        icon: "error",
+        title: "Order Failed",
+        text:
+          error.response?.data?.message ||
+          "An error occurred. Please try again.",
+      });
     }
   };
-
   return (
     <>
       <div

@@ -1,12 +1,13 @@
 import React from "react";
 
 const formatPrice = (price) => {
-  return new Intl.NumberFormat("id-ID").format(price);
+  if (!isNaN(price)) {
+    return new Intl.NumberFormat("id-ID").format(Number(price));
+  }
+  return price; // Jika bukan angka, kembalikan teks asli
 };
 
 const PriceFormat = ({ price }) => {
-  if (typeof price !== "number") return null;
-
   return <>{formatPrice(price)}</>;
 };
 

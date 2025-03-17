@@ -74,7 +74,9 @@ export default function DetailBlog() {
                 <div className="image">
                   <img src={blog.img} alt="Image" />
                 </div>
-                <div className="inner-post">{blog.desc}</div>
+                <div
+                  className="inner-post"
+                  dangerouslySetInnerHTML={{ __html: blog.desc }}></div>
               </div>
             </div>
             <div className="side-bar col-md-4">

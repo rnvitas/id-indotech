@@ -5513,7 +5513,7 @@ fieldset.password > i::before {
 
 /* popup */
 .modal {
-  z-index: 999999 !important;
+  z-index: 1001 !important;
   position: fixed;
   top: -100%;
   /* top: 0; */
