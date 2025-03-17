@@ -9,6 +9,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data.blogs);
 const fetcherEtc = (url) => axios.get(url).then((res) => res.data);
+
 export default function DetailBlog() {
   const { id } = useParams();
   const {
@@ -56,7 +57,10 @@ export default function DetailBlog() {
                 <div className="meta-post flex justify-between mt-10 items-center">
                   <div className="author flex items-center justify-between">
                     <div className="avatar">
-                      <img src="/icon/cat-indotech.jpeg" alt="Image" />
+                      <img
+                        src={`${basePath}/icon/cat-indotech.jpeg`}
+                        alt="Image"
+                      />
                     </div>
                     <div className="info">
                       <span>Posted by:</span>

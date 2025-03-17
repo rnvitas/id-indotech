@@ -3,6 +3,7 @@
 import PriceFormat from "@/components/utils/PriceFormat";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function card({ product, openModal }) {
   return (
@@ -11,7 +12,7 @@ export default function card({ product, openModal }) {
         <div className="tf-card-box style-4">
           <div className="author flex items-center">
             <div className="avatar">
-              <img src="/icon/cat-indotech.jpeg" alt="Image" />
+              <img src={`${basePath}/icon/cat-indotech.jpeg`} alt="Image" />
             </div>
             <div className="info">
               <span>Category:</span>

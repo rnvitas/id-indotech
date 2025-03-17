@@ -98,7 +98,10 @@ export default function Detail() {
                   <div className="author flex items-center">
                     {" "}
                     <div className="avatar">
-                      <img src="icon/ic-indotech.png" alt="Image" />
+                      <img
+                        src={`${basePath}icon/ic-indotech.png`}
+                        alt="Image"
+                      />
                     </div>
                     <div className="info">
                       <span>Category:</span>

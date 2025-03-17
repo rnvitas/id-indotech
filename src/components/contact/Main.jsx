@@ -6,6 +6,7 @@ import L from "leaflet";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Icon } from "@iconify/react";
 
 const customIcon = new L.Icon({
   iconUrl: "/icon/pin.png",
@@ -118,7 +119,7 @@ export default function Main() {
             </div>
             <div className="col-md-4">
               <div className="box-icon-item">
-                <img src="/assets/address.png" alt="" />
+                <Icon icon="lets-icons:map-light" width="48" height="48" />
                 <div className="title">
                   <a href="#">Office address</a>
                 </div>
@@ -127,7 +128,7 @@ export default function Main() {
             </div>
             <div className="col-md-4">
               <div className="box-icon-item">
-                <img src="/assets/email.png" alt="" />
+                <Icon icon="mdi-light:email" width="48" height="48" />
                 <div className="title">
                   <a href="#">Email</a>
                 </div>
@@ -136,7 +137,7 @@ export default function Main() {
             </div>
             <div className="col-md-4">
               <div className="box-icon-item">
-                <img src="/assets/phone.png" alt="" />
+                <Icon icon="solar:phone-outline" width="48" height="48" />
                 <div className="title">
                   <a href="#">Phone number</a>
                 </div>

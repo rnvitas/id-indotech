@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@iconify/react";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
@@ -60,7 +61,7 @@ function Navbar() {
                     <a href="/" rel="home" className="main-logo">
                       <img
                         id="logo_header"
-                        src="/icon/lg-indotech.png"
+                        src={`${basePath}/icon/lg-indotech.png`}
                         alt="Logo"
                       />
                     </a>
@@ -137,7 +138,7 @@ function Navbar() {
                     <a href="index.html" rel="home" className="main-logo">
                       <img
                         id="mobile-logo_header"
-                        src="/icon/lg-indotech.png"
+                        src={`${basePath}/icon/lg-indotech.png`}
                         data-retina="icon/lg-indotech.png"
                         style={{ width: "70%" }}
                       />

@@ -5,8 +5,20 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import ParticleBackground from "./Particlebg";
+import useSWR from "swr";
+import axios from "axios";
+const fetcher = (url) => axios.get(url).then((res) => res.data);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Discover() {
+  const { data, error } = useSWR(`${basePath}/api/banner`, fetcher);
+  const banners = data?.banner || [];
+
+  // console.log("banner:", data);
+
+  if (error) return <div>Error loading banners</div>;
+  if (!data) return <div>Loading...</div>;
+
   return (
     <>
       <div className="tf-section action">
@@ -34,18 +46,12 @@ export default function Discover() {
                     autoplay={{ delay: 0, disableOnInteraction: false }}
                     modules={[Autoplay]}
                     className="autoslider3reverse swiper-container ">
-                    <SwiperSlide>
-                      <img
-                        src="/images/item-background/bg-action-1.png"
-                        alt=""
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img
-                        src="/images/item-background/bg-action-1.png"
-                        alt=""
-                      />
-                    </SwiperSlide>
+                    {Array.isArray(banners) &&
+                      banners.map((item, i) => (
+                        <SwiperSlide key={i}>
+                          <img src={item.img} alt={`Banner ${i}`} />
+                        </SwiperSlide>
+                      ))}
                   </Swiper>
 
                   <Swiper
@@ -61,18 +67,12 @@ export default function Discover() {
                     }}
                     modules={[Autoplay]}
                     className="autoslider4reverse swiper-container ">
-                    <SwiperSlide>
-                      <img
-                        src="/images/item-background/bg-action-1.png"
-                        alt=""
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img
-                        src="/images/item-background/bg-action-1.png"
-                        alt=""
-                      />
-                    </SwiperSlide>
+                    {Array.isArray(banners) &&
+                      banners.map((item, i) => (
+                        <SwiperSlide key={i}>
+                          <img src={item.img} alt={`Banner ${i}`} />
+                        </SwiperSlide>
+                      ))}
                   </Swiper>
 
                   <Swiper
@@ -84,18 +84,12 @@ export default function Discover() {
                     autoplay={{ delay: 0, disableOnInteraction: false }}
                     modules={[Autoplay]}
                     className="autoslider3reverse swiper-container ">
-                    <SwiperSlide>
-                      <img
-                        src="/images/item-background/bg-action-1.png"
-                        alt=""
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img
-                        src="/images/item-background/bg-action-1.png"
-                        alt=""
-                      />
-                    </SwiperSlide>
+                    {Array.isArray(banners) &&
+                      banners.map((item, i) => (
+                        <SwiperSlide key={i}>
+                          <img src={item.img} alt={`Banner ${i}`} />
+                        </SwiperSlide>
+                      ))}
                   </Swiper>
                 </div>
               </div>

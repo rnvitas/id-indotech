@@ -1,34 +1,31 @@
 export default function Step() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   const data = [
     {
       id: 1,
       title: "Choose a Product",
-      img: "/icon/Product.png",
+      img: `${basePath}/icon/Product.png`,
       desc: "Browse our digital products and select the one that suits your needs.",
     },
-
     {
       id: 2,
-      title: `Click "Buy Now"`,
-      img: "/icon/order.png",
-      desc: `Once you've made your choice, click the "Buy Now" button to proceed.`,
+      title: `Click \"Buy Now\"`,
+      img: `${basePath}/icon/order.png`,
+      desc: `Once you've made your choice, click the \"Buy Now\" button to proceed.`,
     },
-
     {
       id: 3,
       title: "Fill Out The Form",
-      img: "/icon/Form.png",
-      desc: `  Enter your name and email in the form, then click the "Order"
-                  button.`,
+      img: `${basePath}/icon/Form.png`,
+      desc: `Enter your name and email in the form, then click the \"Order\" button.`,
     },
-
     {
       id: 4,
       title: "Redirect to Whatsapp Business",
-      img: "/icon/wa.png",
-      desc: ` You'll be redirected to WhatsApp Business, where you can chat
-                  with our admin to confirm your purchase.`,
-      hidden: `none`,
+      img: `${basePath}/icon/wa.png`,
+      desc: `You'll be redirected to WhatsApp Business, where you can chat with our admin to confirm your purchase.`,
+      hidden: "none",
     },
   ];
   return (

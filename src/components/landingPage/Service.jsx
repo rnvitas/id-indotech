@@ -1,36 +1,36 @@
 "use client";
-
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Service() {
   const data = [
     {
       id: "step1",
       title: "Software Development",
       desc: "Web and mobile app development with cloud, AI, and Big Data solutions.",
-      img: "/assets/perspective_matte-23-128x128.png",
+      img: `${basePath}/assets/perspective_matte-23-128x128.png`,
     },
     {
       id: "step2",
       title: "Social Media Management",
       desc: "Optimizing social media with creative content and branding campaigns.",
-      img: "/assets/perspective_matte-24-128x128.png",
+      img: `${basePath}/assets/perspective_matte-24-128x128.png`,
     },
     {
       id: "step3",
       title: "Advertising & Digital Marketing",
       desc: "Data-driven marketing with ads, SEO, and content strategies.",
-      img: "/assets/perspective_matte-36-128x128.png",
+      img: `${basePath}/assets/perspective_matte-36-128x128.png`,
     },
     {
       id: "step4",
       title: "Video Production & Multimedia",
       desc: "Business and educational videos, animation, and live streaming.",
-      img: "/assets/perspective_matte-20-128x128.png",
+      img: `${basePath}/assets/perspective_matte-20-128x128.png`,
     },
   ];
 
   return (
     <>
-      <div className="tf-section create-sell">
+      <div className="tf-section create-sell" id="service">
         <div className="themesflat-container">
           <div className="row">
             <div className="col-md-12">

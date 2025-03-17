@@ -1,3 +1,5 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Hero() {
   return (
     <>
@@ -29,22 +31,22 @@ export default function Hero() {
               <div className="icon-background">
                 <img
                   className="absolute item1"
-                  src="assets/images/item-background/item11.png"
+                  src={`${basePath}/assets/images/item-background/item11.png`}
                   alt=""
                 />
                 <img
                   className="absolute item2"
-                  src="assets/images/item-background/item10.png"
+                  src={`${basePath}/assets/images/item-background/item10.png`}
                   alt=""
                 />
                 <img
                   className="absolute item3"
-                  src="assets/images/item-background/item12.png"
+                  src={`${basePath}/assets/images/item-background/item12.png`}
                   alt=""
                 />
                 <img
                   className="absolute item4"
-                  src="assets/images/item-background/item13.png"
+                  src={`${basePath}/assets/images/item-background/item13.png`}
                   alt=""
                 />
               </div>

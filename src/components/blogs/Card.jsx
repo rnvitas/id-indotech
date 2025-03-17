@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import DateFormat from "../utils/DateFormat";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Card({ data }) {
   return (
@@ -33,7 +34,7 @@ export default function Card({ data }) {
           <div className="card-bottom flex items-center justify-between">
             <div className="author flex items-center justify-between">
               <div className="avatar">
-                <img src="/icon/cat-indotech.jpeg" alt="Image" />
+                <img src={`${basePath}/icon/cat-indotech.jpeg`} alt="Image" />
               </div>
               <div className="info">
                 <span>Posted by:</span>

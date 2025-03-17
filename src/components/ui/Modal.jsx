@@ -122,7 +122,7 @@ export default function Modal({ product, closeModal, showModal }) {
               <div
                 className="image px-3 py-3 mb-30"
                 style={{ background: "#161616" }}>
-                <img src="/icon/lg-indotech.png" alt="" />
+                <img src={`${basePath}/icon/lg-indotech.png`} alt="" />
               </div>
 
               <h2 style={{ borderTop: "1px solid #232323" }} className="pt-3">

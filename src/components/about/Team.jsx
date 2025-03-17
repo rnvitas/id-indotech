@@ -1,40 +1,42 @@
 export default function Team() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   const data = [
     {
       id: 1,
       fullname: "Adrina Putri",
       position: "Software Engineer",
-      img: "/avatar/avatar1.jpg",
+      img: `${basePath}/avatar/avatar1.jpg`,
     },
     {
       id: 2,
       fullname: "Bastian Rahman",
       position: "Digital Marketing Specialist",
-      img: "/avatar/avatar2.jpg",
+      img: `${basePath}/avatar/avatar2.jpg`,
     },
     {
       id: 3,
       fullname: "Celina Wardhana",
       position: "UI/UX Designer",
-      img: "/avatar/avatar3.jpeg",
+      img: `${basePath}/avatar/avatar3.jpeg`,
     },
     {
       id: 4,
       fullname: "Darren Pratama",
       position: "Project Manager",
-      img: "/avatar/avatar1.jpg",
+      img: `${basePath}/avatar/avatar1.jpg`,
     },
     {
       id: 5,
       fullname: "Elvina Kusuma",
       position: "Content Creator",
-      img: "/avatar/avatar2.jpg",
+      img: `${basePath}/avatar/avatar2.jpg`,
     },
     {
       id: 6,
       fullname: "Elvina Kusuma",
       position: "Content Creator",
-      img: "/avatar/avatar3.jpeg",
+      img: `${basePath}/avatar/avatar3.jpeg`,
     },
   ];
 

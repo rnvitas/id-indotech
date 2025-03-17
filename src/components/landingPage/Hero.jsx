@@ -21,8 +21,7 @@ export default function Hero() {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const banners = data?.banner || [];
-  // console.log(banners);
-  // Fungsi untuk membuka modal dan mengatur produk yang dipilih
+
   const openModal = (product) => {
     if (product) {
       setSelectedProduct(product);
@@ -30,14 +29,12 @@ export default function Hero() {
     }
   };
 
-  // modal terbuka setelah produk ada
   useEffect(() => {
     if (banners && banners.length > 0 && selectedProduct) {
       console.log("Selected product:", selectedProduct);
     }
   }, [banners, selectedProduct]);
 
-  // Fungsi untuk menutup modal
   const closeModal = () => {
     setShowModal(false);
     setSelectedProduct(null);
@@ -72,50 +69,45 @@ export default function Hero() {
                   <Link
                     href={`/products/`}
                     className="tf-button style-1 h50 w190 mr-16">
-                    All collections{" "}
-                    <Icon icon="gg:arrow-top-right" width="24" height="24" />
-                  </Link>
-                  {/* <a href="#" className="tf-button style-1 h50 w190 active">
                     All collections
                     <Icon icon="gg:arrow-top-right" width="24" height="24" />
-                  </a> */}
+                  </Link>
                 </div>
               </div>
               <div className="icon-background">
                 <img
                   className="absolute item1"
-                  src="/assets/item1.png"
+                  src={`${basePath}/assets/item1.png`}
                   alt=""
                 />
                 <img
                   className="absolute item2"
-                  src="/assets/item2.png"
+                  src={`${basePath}/assets/item2.png`}
                   alt=""
                 />
                 <img
                   className="absolute item3"
-                  src="/assets/perspective_matte-248-128x128.png.png"
+                  src={`${basePath}/assets/perspective_matte-248-128x128.png`}
                   alt=""
                 />
-                {/* <Image className="absolute item4" src={item4} alt="" /> */}
                 <img
                   className="absolute item5"
-                  src="/assets/perspective_matte-447-128x128.png.png"
+                  src={`${basePath}/assets/perspective_matte-447-128x128.png`}
                   alt=""
                 />
                 <img
                   className="absolute item6"
-                  src="/assets/item1.png"
+                  src={`${basePath}/assets/item1.png`}
                   alt=""
                 />
                 <img
                   className="absolute item7"
-                  src="/assets/item5.png"
+                  src={`${basePath}/assets/item5.png`}
                   alt=""
                 />
                 <img
                   className="absolute item8"
-                  src="/assets/item5.png"
+                  src={`${basePath}/assets/item5.png`}
                   alt=""
                 />
               </div>
@@ -134,7 +126,6 @@ export default function Hero() {
                   coverflowEffect={{
                     rotate: 15,
                     stretch: 10,
-                    // depth: 1,
                     modifier: 1,
                     scale: 0.9,
                     slideShadows: false,
@@ -169,9 +160,6 @@ export default function Hero() {
                 <div className="swiper-button-next next-3d over"></div>
                 <div className="swiper-button-prev prev-3d over"></div>
               </div>
-
-              {/* <div className="swiper-button-next next-3d over"></div>
-                <div className="swiper-button-prev prev-3d over"></div> */}
             </div>
           </div>
         </div>

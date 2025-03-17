@@ -1,8 +1,10 @@
-"use client"; // Pastikan ini ada di bagian atas file
+"use client";
 
 import { useCallback } from "react";
-import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+// import Particles from "@tsparticles/react";
+// import { loadSlim } from "@tsparticles/slim";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
 
 export default function ParticleBackground() {
   const particlesInit = useCallback(async (engine) => {
