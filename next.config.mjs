@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  basePath: "/indotech",
+};
 
 export default nextConfig;
