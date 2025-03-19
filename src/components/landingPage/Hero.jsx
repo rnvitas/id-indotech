@@ -178,7 +178,7 @@ export default function Hero() {
 
       {showModal && selectedProduct && (
         <Modal
-          data={selectedProduct}
+          product={selectedProduct}
           closeModal={closeModal}
           showModal={showModal}
         />
