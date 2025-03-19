@@ -25,7 +25,7 @@ const Log = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: "Product",
+        model: "products",
         key: "id",
       },
     },

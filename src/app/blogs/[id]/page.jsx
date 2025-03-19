@@ -18,9 +18,12 @@ export default function DetailBlog() {
     isLoading,
   } = useSWR(id ? `${basePath}/api/blogs/${id}` : null, fetcher);
 
-  const { data: etcProducts } = useSWR(`/api/blogs?page=1&limit=4`, fetcherEtc);
+  const { data: etcBlogs } = useSWR(
+    `${basePath}/api/blogs?page=1&limit=4`,
+    fetcherEtc
+  );
   // console.log(fetcher);
-  const otherBlogs = (etcProducts?.data || []).filter(
+  const otherBlogs = (etcBlogs?.data || []).filter(
     (item) => String(item.id) !== String(id)
   );
 
@@ -31,16 +34,17 @@ export default function DetailBlog() {
   if (error) return <div>Error loading data</div>;
   return (
     <>
-      <div className="flat-title-page blog-detail">
+      <div className="flat-title-page blog-detail mtt-5">
         <div className="themesflat-container">
           <div className="row">
             <div className="col-12">
               <ul className="breadcrumbs flex">
                 <li className="icon-keyboard_arrow_right">
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
+                <li>/</li>
                 <li>
-                  <a href="#">Blogs</a>
+                  <a href="/blogs">Blogs</a>
                 </li>
               </ul>
             </div>
@@ -84,33 +88,36 @@ export default function DetailBlog() {
                   dangerouslySetInnerHTML={{ __html: blog.desc }}></div>
               </div>
             </div>
-            <div className="side-bar col-md-4">
-              <div className="widget widget-related-posts">
-                <h5 className="title-widget">Related Posts</h5>
 
-                {otherBlogs.map((item) => (
-                  <div className="related-posts-item">
-                    <div className="card-media">
-                      <img src={item.img} alt="" />
-                    </div>
-                    <div className="card-content">
-                      <h5>
-                        <Link href={`/blogs/${item.id}`}>{item.title}</Link>
-                      </h5>
-                      <div className="item date d-flex items-center">
-                        <Icon
-                          className="mr-2"
-                          icon="lets-icons:time"
-                          width="24"
-                          height="24"
-                        />
-                        <DateFormat dateString={item.createdAt} />{" "}
+            {otherBlogs && otherBlogs.length > 0 && (
+              <div className="side-bar col-md-4">
+                <div className="widget widget-related-posts">
+                  <h5 className="title-widget">Related Posts</h5>
+
+                  {otherBlogs.map((item) => (
+                    <div className="related-posts-item">
+                      <div className="card-media">
+                        <img src={item.img} alt="" />
+                      </div>
+                      <div className="card-content">
+                        <h5>
+                          <Link href={`/blogs/${item.id}`}>{item.title}</Link>
+                        </h5>
+                        <div className="item date d-flex items-center">
+                          <Icon
+                            className="mr-2"
+                            icon="lets-icons:time"
+                            width="24"
+                            height="24"
+                          />
+                          <DateFormat dateString={item.createdAt} />{" "}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

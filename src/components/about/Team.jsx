@@ -1,3 +1,6 @@
+"use client";
+import * as animations from "@/lib/animation";
+import { motion } from "framer-motion";
 export default function Team() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -55,13 +58,18 @@ export default function Team() {
                 data-wow-delay="0s"
                 className="fadeInUp col-md-2 col-6 "
                 key={item.id}>
-                <div className="our-team-item pb-38 text-center">
-                  <img src={item.img} alt="" />
-                  <div className="name">
-                    <a href="#">{item.fullname}</a>
+                <motion.div
+                  variants={animations.scaleUp}
+                  initial="hidden"
+                  whileInView="visible">
+                  <div className="our-team-item pb-38 text-center">
+                    <img src={item.img} alt="" />
+                    <div className="name">
+                      <a href="#">{item.fullname}</a>
+                    </div>
+                    <div className="info">{item.position}</div>
                   </div>
-                  <div className="info">{item.position}</div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>

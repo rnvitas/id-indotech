@@ -7,6 +7,10 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
+import * as animations from "@/lib/animation";
+import { motion } from "framer-motion";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const customIcon = new L.Icon({
   iconUrl: "/icon/pin.png",
@@ -14,7 +18,6 @@ const customIcon = new L.Icon({
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
 });
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Main() {
   const [input, setInput] = useState({
@@ -70,10 +73,11 @@ export default function Main() {
               <h1 className="heading text-center">Get In Touch</h1>
               <ul className="breadcrumbs flex justify-center">
                 <li className="icon-keyboard_arrow_right">
-                  <a href="index.html">Home</a>
+                  <Link href={`${basePath}/`}>Home</Link>
                 </li>
+                <li>/</li>
                 <li>
-                  <a href="#">Explore</a>
+                  <Link href={`${basePath}/contact`}>Contact</Link>
                 </li>
               </ul>
             </div>
@@ -108,44 +112,64 @@ export default function Main() {
         <div className="themesflat-container">
           <div className="row">
             <div className="col-md-12">
-              <div className="heading-section-1">
-                <h2 className="tf-title pb-20">Information</h2>
-                <p className="pb-40">
-                  Get in touch with Indotech Digital Group—your trusted partner
-                  in digital innovation. Whether you have inquiries,
-                  collaborations, or need assistance, we're here to help.
-                </p>
-              </div>
+              <motion.div
+                variants={animations.fadeUp}
+                initial="hidden"
+                whileInView="visible">
+                <div className="heading-section-1">
+                  <h2 className="tf-title pb-20">Information</h2>
+                  <p className="pb-40">
+                    Get in touch with Indotech Digital Group—your trusted
+                    partner in digital innovation. Whether you have inquiries,
+                    collaborations, or need assistance, we're here to help.
+                  </p>
+                </div>
+              </motion.div>
             </div>
             <div className="col-md-4">
-              <div className="box-icon-item">
-                <Icon icon="lets-icons:map-light" width="48" height="48" />
-                <div className="title">
-                  <a href="#">Office address</a>
+              <motion.div
+                variants={animations.scaleUp}
+                initial="hidden"
+                whileInView="visible">
+                <div className="box-icon-item">
+                  <Icon icon="lets-icons:map-light" width="48" height="48" />
+                  <div className="title">
+                    <a href="#">Office address</a>
+                  </div>
+                  <p>Jl. Teknologi No. 88, Jakarta, Indonesia</p>
                 </div>
-                <p>Jl. Teknologi No. 88, Jakarta, Indonesia</p>
-              </div>
+              </motion.div>
             </div>
             <div className="col-md-4">
-              <div className="box-icon-item">
-                <Icon icon="mdi-light:email" width="48" height="48" />
-                <div className="title">
-                  <a href="#">Email</a>
+              <motion.div
+                variants={animations.scaleUp}
+                initial="hidden"
+                whileInView="visible">
+                <div className="box-icon-item">
+                  <Icon icon="mdi-light:email" width="48" height="48" />
+                  <div className="title">
+                    <a href="#">Email</a>
+                  </div>
+                  <p>info@indotechdigital.id</p>
                 </div>
-                <p>info@indotechdigital.id</p>
-              </div>
+              </motion.div>
             </div>
             <div className="col-md-4">
-              <div className="box-icon-item">
-                <Icon icon="solar:phone-outline" width="48" height="48" />
-                <div className="title">
-                  <a href="#">Phone number</a>
+              <motion.div
+                variants={animations.scaleUp}
+                initial="hidden"
+                whileInView="visible">
+                <div className="box-icon-item">
+                  <Icon icon="solar:phone-outline" width="48" height="48" />
+                  <div className="title">
+                    <a href="#">Phone number</a>
+                  </div>
+                  <p>
+                    (+62) 21 1234 5678
+                    <br />
+                  </p>
                 </div>
-                <p>
-                  (+62) 21 1234 5678
-                  <br />
-                </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

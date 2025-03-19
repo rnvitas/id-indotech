@@ -20,7 +20,7 @@ function Navbar() {
       const scrollY = window.scrollY;
 
       setIsFixed(scrollY > offsetTop + headerHeight);
-      setIsSmall(scrollY > 100);
+      setIsSmall(scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);

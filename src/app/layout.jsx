@@ -6,7 +6,6 @@ import "../styles/custom.css";
 import "../styles/update.css";
 
 // import "animate.css";
-
 import Navbar from "@/components/fragments/Navbar";
 import Footer from "@/components/fragments/Footer";
 

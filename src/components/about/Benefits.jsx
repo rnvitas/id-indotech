@@ -1,3 +1,6 @@
+"use client";
+import * as animations from "@/lib/animation";
+import { motion } from "framer-motion";
 export default function Benefits() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -51,17 +54,20 @@ export default function Benefits() {
               </div>
             </div>
             {data.map((item) => (
-              <div
-                data--delay="0s"
-                className=" fadeInUp col-md-4 my-3"
-                key={item.id}>
-                <div className="box-icon-item">
-                  <img src={item.img} alt="" />
-                  <div className="title">
-                    <a href="#">{item.title}</a>
+              <div className=" col-md-4 my-3">
+                <motion.div
+                  variants={animations.fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  key={item.id}>
+                  <div className="box-icon-item">
+                    <img src={item.img} alt="" />
+                    <div className="title">
+                      <a href="#">{item.title}</a>
+                    </div>
+                    <p>{item.desc}</p>
                   </div>
-                  <p>{item.desc}</p>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>

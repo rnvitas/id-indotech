@@ -1,4 +1,6 @@
 "use client";
+import * as animations from "@/lib/animation";
+import { motion } from "framer-motion";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Service() {
   const data = [
@@ -40,21 +42,23 @@ export default function Service() {
             </div>
             <div className="row">
               {data.map((item, index) => (
-                <div
-                  data--delay="0s"
-                  className=" fadeInUp col-lg-3 col-md-6 "
-                  key={item.id}>
-                  <div className={`tf-box-icon style-1 ${item.id} relative`}>
-                    <div className="image text-center">
-                      <img src={item.img} alt="" />
-                      <p>0{index + 1}</p>
+                <div className=" col-lg-3 col-md-6 " key={item.id}>
+                  <motion.div
+                    variants={animations.scaleUp}
+                    initial="hidden"
+                    whileInView="visible">
+                    <div className={`tf-box-icon style-1 ${item.id} relative`}>
+                      <div className="image text-center">
+                        <img src={item.img} alt="" />
+                        <p>0{index + 1}</p>
+                      </div>
+                      <h6 className="heading" style={{ lineHeight: "20px" }}>
+                        <a href="contact-us.html">{item.title}</a>
+                      </h6>
+                      <p className="content mt-2">{item.desc}</p>
+                      <div className="rainbow"></div>
                     </div>
-                    <h6 className="heading" style={{ lineHeight: "20px" }}>
-                      <a href="contact-us.html">{item.title}</a>
-                    </h6>
-                    <p className="content mt-2">{item.desc}</p>
-                    <div className="rainbow"></div>
-                  </div>
+                  </motion.div>
                 </div>
               ))}
             </div>

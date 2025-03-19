@@ -8,7 +8,9 @@ const Main = dynamic(() => import("@/components/contact/Main"), { ssr: false });
 export default function Contact() {
   return (
     <>
-      <Main />
+      <div className="mtt-5">
+        <Main />
+      </div>
     </>
   );
 }

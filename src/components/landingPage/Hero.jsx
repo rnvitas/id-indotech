@@ -2,8 +2,9 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import * as animations from "@/lib/animation";
+import { motion } from "framer-motion";
 
-import Image from "next/image";
 import Card from "../ui/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
@@ -54,15 +55,25 @@ export default function Hero() {
           <div className="row">
             <div className="col-12 pages-title">
               <div className="content">
-                <h1 data--delay="0s" className=" fadeInUp">
-                  Indotech Digital Group
-                </h1>
-                <p className=" fadeInUp" data--delay="0.1s">
-                  We are a tech company specializing in software development,
-                  digital marketing, social media management, video production,
-                  and fintech innovation—serving industries from education to
-                  finance. 🚀
-                </p>
+                <motion.div
+                  variants={animations.fadeUp}
+                  initial="hidden"
+                  whileInView="visible">
+                  <h1>Indotech Digital Group</h1>
+                </motion.div>
+
+                <motion.div
+                  variants={animations.fadeUp}
+                  initial="hidden"
+                  whileInView="visible">
+                  <p>
+                    We are a tech company specializing in software development,
+                    digital marketing, social media management, video
+                    production, and fintech innovation—serving industries from
+                    education to finance. 🚀
+                  </p>
+                </motion.div>
+
                 <div
                   data--delay="0.2s"
                   className="  fadeInUp flat-button flex justify-center">

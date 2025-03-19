@@ -17,11 +17,11 @@ const Contact = sequelize.define(
       allowNull: false,
     },
     subject: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     message: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   },

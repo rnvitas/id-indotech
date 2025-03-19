@@ -104,17 +104,18 @@ export default function Main() {
 
   return (
     <>
-      <div className="flat-title-page">
+      <div className="flat-title-page mtt-5">
         <div className="themesflat-container">
           <div className="row">
             <div className="col-12">
               <h1 className="heading text-center">Explore Product</h1>
               <ul className="breadcrumbs flex justify-center">
                 <li className="icon-keyboard_arrow_right">
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
+                <li>/</li>
                 <li>
-                  <a href="#">Explore</a>
+                  <a href="/products">Explore Products</a>
                 </li>
               </ul>
             </div>

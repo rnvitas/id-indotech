@@ -36,7 +36,7 @@ const Products = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: "Category",
+        model: "categories",
         key: "id",
       },
     },
