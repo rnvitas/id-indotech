@@ -42,20 +42,20 @@ export default function Service() {
             </div>
             <div className="row">
               {data.map((item, index) => (
-                <div className="col-lg-3 col-md-6 flex" key={item.id}>
+                <div className=" col-lg-3 col-md-6 " key={item.id}>
                   <motion.div
                     variants={animations.scaleUp}
                     initial="hidden"
-                    whileInView="visible"
-                    className="w-full flex flex-col h-full">
-                    <div
-                      className={`tf-box-icon style-1 ${item.id} relative flex flex-col justify-between items-center min-h-[300px] p-4 bg-white rounded-lg shadow-lg`}>
+                    whileInView="visible">
+                    <div className={`tf-box-icon style-1 ${item.id} relative`}>
                       <div className="image text-center">
                         <img src={item.img} alt="" style={{ width: "150px" }} />
                         <p>0{index + 1}</p>
                       </div>
-                      <h6 className="heading text-center leading-tight">
-                        {item.title}
+                      <h6
+                        className="heading text-center"
+                        style={{ lineHeight: "20px" }}>
+                        <h6>{item.title}</h6>
                       </h6>
                       <p className="content mt-2 text-center">{item.desc}</p>
                       <div className="rainbow"></div>
