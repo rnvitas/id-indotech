@@ -4,6 +4,7 @@ import Card from "./Card";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import Loading from "../ui/Loading";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const fetchBlogs = async (page, search) => {
@@ -40,11 +41,11 @@ export default function Main() {
               <h1 className="heading text-center">Blog</h1>
               <ul className="breadcrumbs flex justify-center">
                 <li className="icon-keyboard_arrow_right">
-                  <a href="/">Home</a>
+                  <a href={`${basePath}/`}>Home</a>
                 </li>
                 <li>/</li>
                 <li>
-                  <a href="/blogs">Blogs</a>
+                  <a href={`${basePath}/blogs`}>Blogs</a>
                 </li>
               </ul>
             </div>
@@ -75,12 +76,15 @@ export default function Main() {
             </div>
           </div>
           <div className="row">
-            {Array.isArray(blogs?.blogs) && blogs?.blogs.length > 0 ? (
+            {isLoading ? (
+              <Loading />
+            ) : Array.isArray(blogs?.blogs) && blogs?.blogs.length > 0 ? (
               blogs?.blogs.map((item) => <Card key={item.id} data={item} />)
             ) : (
               <div>No Blogs available</div>
             )}
           </div>
+
           <div className="rd-flex justify-content-center items-center">
             <div className="mt-4 d-flex justify-content-center items-center gap-2">
               <button

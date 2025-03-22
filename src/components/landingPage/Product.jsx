@@ -9,6 +9,7 @@ import Modal from "../ui/Modal";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import * as animations from "@/lib/animation";
 import { motion } from "framer-motion";
+import Loading from "../ui/Loading";
 const fetcherCategory = (url) => axios.get(url).then((res) => res.data.data);
 const fetcherProducts = (url) => axios.get(url).then((res) => res.data.data);
 
@@ -194,15 +195,19 @@ export default function Product() {
                   </div>
                 </div>
               </div>
-
-              {Array.isArray(products) &&
+              {isLoading ? (
+                <Loading />
+              ) : Array.isArray(products) && products.length > 0 ? (
                 products.map((item) => (
                   <CardProduct
                     key={item.id}
                     product={item}
                     openModal={openModal}
                   />
-                ))}
+                ))
+              ) : (
+                <p className="text-center w-full">No products found.</p>
+              )}
             </div>
           </div>
         </div>

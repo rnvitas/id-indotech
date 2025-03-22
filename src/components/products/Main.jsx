@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
+import Loading from "../ui/Loading";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const fetcher = (url) => axios.get(url).then((res) => res.data.data);
 const fetchProducts = async (page, sort, search, categoryId) => {
@@ -111,11 +112,11 @@ export default function Main() {
               <h1 className="heading text-center">Explore Product</h1>
               <ul className="breadcrumbs flex justify-center">
                 <li className="icon-keyboard_arrow_right">
-                  <a href="/">Home</a>
+                  <a href={`${basePath}/`}>Home</a>
                 </li>
                 <li>/</li>
                 <li>
-                  <a href="/products">Explore Products</a>
+                  <a href={`${basePath}/products`}>Explore Products</a>
                 </li>
               </ul>
             </div>
@@ -211,9 +212,11 @@ export default function Main() {
             </div>
             <div className="col-md-9">
               <div className="row">
-                {Array.isArray(products?.products) &&
-                products?.products.length > 0 ? (
-                  products?.products.map((item) => (
+                {isLoading ? (
+                  <Loading /> // Tampilkan Loading saat fetch data
+                ) : Array.isArray(products?.products) &&
+                  products?.products.length > 0 ? (
+                  products.products.map((item) => (
                     <Card key={item.id} product={item} openModal={openModal} />
                   ))
                 ) : (

@@ -87,7 +87,7 @@ export default function Detail() {
                   </div>
 
                   <h2>{product.title}</h2>
-                  <div className="flex justify-content-between mb-30">
+                  <div className="flex justify-content-between mb-30 align-items-center">
                     <div className="author flex items-center">
                       {" "}
                       <div className="avatar">

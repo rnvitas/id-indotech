@@ -61,8 +61,8 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                <div class="widget widget-menu style-3">
-                  <h5 class="title-widget">Specializing</h5>
+                <div className="widget widget-menu style-3">
+                  <h5 className="title-widget">Specializing</h5>
                   <ul>
                     <li>
                       <a href={`${basePath}/#service`}>Software Development</a>

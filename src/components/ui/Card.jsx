@@ -1,12 +1,13 @@
 // import Image from "next/image";
 import Link from "next/link";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Card({ data, openModal }) {
   return (
     <>
       <div className="tf-card-box">
         <div className="card-media">
-          <a href={`/products/${data.id}`}>
+          <a href={`${basePath}/products/${data.id}`}>
             <img src={data.img} alt="" />
           </a>
 

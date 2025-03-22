@@ -7,6 +7,7 @@ import "swiper/css/autoplay";
 import ParticleBackground from "./Particlebg";
 import useSWR from "swr";
 import axios from "axios";
+import Loading from "../ui/Loading";
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -17,7 +18,12 @@ export default function Discover() {
   // console.log("banner:", data);
 
   if (error) return <div>Error loading banners</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
 
   return (
     <>

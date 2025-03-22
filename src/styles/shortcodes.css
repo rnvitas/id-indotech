@@ -5231,7 +5231,7 @@ button.follow:hover {
 /* widget-box-icon */
 .box-icon-item {
   border-radius: 30px;
-  background: #232323;
+  /* background: #232323; */
   padding: 30px;
   text-align: center;
 }

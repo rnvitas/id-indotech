@@ -14,11 +14,12 @@ import axios from "axios";
 import useSWR from "swr";
 import Modal from "../ui/Modal";
 import { useEffect, useState } from "react";
+import Loading from "../ui/Loading";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 export default function Hero() {
-  const { data } = useSWR(`${basePath}/api/banner`, fetcher);
+  const { data, isLoading } = useSWR(`${basePath}/api/banner`, fetcher);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const banners = data?.banner || [];
@@ -159,13 +160,17 @@ export default function Hero() {
                     1400: { slidesPerView: 5 },
                   }}
                   className="swiper swiper-3d-7">
-                  {Array.isArray(banners) &&
+                  {isLoading ? (
+                    <Loading />
+                  ) : (
+                    Array.isArray(banners) &&
                     banners.length > 0 &&
                     banners.map((item) => (
                       <SwiperSlide key={item.id} className="swiper-slide">
                         <Card data={item} openModal={openModal} />
                       </SwiperSlide>
-                    ))}
+                    ))
+                  )}
                 </Swiper>
                 <div className="swiper-pagination pagination-number"></div>
                 <div className="swiper-button-next next-3d over"></div>

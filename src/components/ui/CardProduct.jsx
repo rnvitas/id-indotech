@@ -27,7 +27,9 @@ export default function CardProduct({ product, openModal }) {
             </div>
           </div>
           <h5 className="name">
-            <Link href={`/products/${product.id}`}>{product.title}</Link>
+            <Link href={`${basePath}/products/${product.id}`}>
+              {product.title}
+            </Link>
           </h5>
           <div className="author flex items-center">
             <div className="avatar">

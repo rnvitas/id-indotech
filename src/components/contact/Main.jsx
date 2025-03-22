@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const customIcon = new L.Icon({
-  iconUrl: "/icon/pin.png",
+  iconUrl: `${basePath}/icon/pin.png`,
   iconSize: [32, 32],
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
@@ -91,14 +91,16 @@ export default function Main() {
             <div className="col-12">
               <div className="widget-gg-map">
                 <MapContainer
-                  center={[-6.2088, 106.8456]}
+                  center={[-6.2138004, 106.8266223]}
                   zoom={20}
                   style={{ height: "460px", width: "100%" }}>
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   />
-                  <Marker position={[-6.2088, 106.8456]} icon={customIcon}>
+                  <Marker
+                    position={[-6.2138004, 106.8266223]}
+                    icon={customIcon}>
                     <Popup>📍 Our Office Location</Popup>
                   </Marker>
                 </MapContainer>
@@ -110,7 +112,9 @@ export default function Main() {
 
       <div className="tf-section-2 widget-box-icon">
         <div className="themesflat-container">
-          <div className="row">
+          <div className="row align-items-stretch">
+            {" "}
+            {/* Tambahkan align-items-stretch */}
             <div className="col-md-12">
               <motion.div
                 variants={animations.fadeUp}
@@ -126,51 +130,42 @@ export default function Main() {
                 </div>
               </motion.div>
             </div>
-            <div className="col-md-4">
-              <motion.div
-                variants={animations.scaleUp}
-                initial="hidden"
-                whileInView="visible">
-                <div className="box-icon-item">
-                  <Icon icon="lets-icons:map-light" width="48" height="48" />
-                  <div className="title">
-                    <a href="#">Office address</a>
+            {[
+              {
+                icon: "lets-icons:map-light",
+                title: "Office address",
+                desc: "Gedung Wirausaha Lantai 1 Unit 104, Jalan Hr Rasuna Said Kav. C-5, Kel Karet, Kec Setia Budi, Jakarta, Indonesia Kode Pos 12920",
+              },
+              {
+                icon: "mdi-light:email",
+                title: "Email",
+                desc: "info@indotechdigital.id",
+              },
+              {
+                icon: "solar:phone-outline",
+                title: "Phone number",
+                desc: "(+62) 21 1234 5678",
+              },
+            ].map((item, index) => (
+              <div className="col-md-4 d-flex" key={index}>
+                {" "}
+                {/* Tambahkan d-flex */}
+                <motion.div
+                  variants={animations.scaleUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  className="w-100">
+                  <div className="box-icon-item d-flex flex-column h-100 justify-content-center align-items-center">
+                    <Icon icon={item.icon} width="48" height="48" />
+                    <div className="title">
+                      <a href="#">{item.title}</a>
+                    </div>
+                    <p className="flex-grow-1">{item.desc}</p>{" "}
+                    {/* Tambahkan flex-grow-1 */}
                   </div>
-                  <p>Jl. Teknologi No. 88, Jakarta, Indonesia</p>
-                </div>
-              </motion.div>
-            </div>
-            <div className="col-md-4">
-              <motion.div
-                variants={animations.scaleUp}
-                initial="hidden"
-                whileInView="visible">
-                <div className="box-icon-item">
-                  <Icon icon="mdi-light:email" width="48" height="48" />
-                  <div className="title">
-                    <a href="#">Email</a>
-                  </div>
-                  <p>info@indotechdigital.id</p>
-                </div>
-              </motion.div>
-            </div>
-            <div className="col-md-4">
-              <motion.div
-                variants={animations.scaleUp}
-                initial="hidden"
-                whileInView="visible">
-                <div className="box-icon-item">
-                  <Icon icon="solar:phone-outline" width="48" height="48" />
-                  <div className="title">
-                    <a href="#">Phone number</a>
-                  </div>
-                  <p>
-                    (+62) 21 1234 5678
-                    <br />
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+                </motion.div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
