@@ -1,6 +1,7 @@
 "use client";
 import * as animations from "@/lib/animation";
 import { motion } from "framer-motion";
+
 export default function Benefits() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -44,35 +45,41 @@ export default function Benefits() {
   ];
 
   return (
-    <>
-      <div className="tf-section-2 widget-box-icon" id="benefit">
-        <div className="themesflat-container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="heading-section-1">
-                <h2 className="tf-title pb-40">Why choose us?</h2>
-              </div>
+    <div className="tf-section-2 widget-box-icon" id="benefit">
+      <div className="themesflat-container">
+        <div className="row align-items-stretch">
+          {" "}
+          {/* Tambahkan align-items-stretch */}
+          <div className="col-md-12">
+            <div className="heading-section-1">
+              <h2 className="tf-title pb-40">Why choose us?</h2>
             </div>
-            {data.map((item) => (
-              <div className=" col-md-4 my-3">
-                <motion.div
-                  variants={animations.fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  key={item.id}>
-                  <div className="box-icon-item">
-                    <img src={item.img} alt="" />
-                    <div className="title">
-                      <a href="#">{item.title}</a>
-                    </div>
-                    <p>{item.desc}</p>
-                  </div>
-                </motion.div>
-              </div>
-            ))}
           </div>
+          {data.map((item) => (
+            <div className="col-md-4 my-3 d-flex h-100" key={item.id}>
+              {" "}
+              {/* Tambahkan d-flex h-100 */}
+              <motion.div
+                variants={animations.fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                className="w-100">
+                <div className="box-icon-item d-flex flex-column h-100 justify-content-center align-items-center text-center p-3">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    style={{ width: "150px" }}
+                  />
+                  <div className="title mt-3">
+                    <a href="#">{item.title}</a>
+                  </div>
+                  <p className="flex-grow-1">{item.desc}</p>
+                </div>
+              </motion.div>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

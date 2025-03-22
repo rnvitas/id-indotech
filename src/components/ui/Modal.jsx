@@ -75,7 +75,7 @@ export default function Modal({ product, closeModal, showModal }) {
 
       // Redirect ke WhatsApp
       const whatsappMessage = `Hi, I would like to order: ${orderSubject?.title}. Name: ${input.name}, Email: ${input.email}, WhatsApp: ${input.wa}`;
-      const whatsappUrl = `https://wa.me/081818134331?text=${encodeURIComponent(
+      const whatsappUrl = `https://wa.me/087875015935?text=${encodeURIComponent(
         whatsappMessage
       )}`;
       setTimeout(() => {

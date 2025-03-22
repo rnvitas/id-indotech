@@ -113,7 +113,8 @@ function Navbar() {
                 <div className="flat-wallet flex">
                   <div id="wallet-header">
                     <a
-                      href="/wallet"
+                      href="https://wa.me/087875015935"
+                      target="_blank"
                       id="connectbtn"
                       className="tf-button style-1">
                       <Icon
