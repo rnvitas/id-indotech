@@ -58,7 +58,7 @@ function Navbar() {
               <div className="wrap-box flex">
                 <div id="site-logo">
                   <div id="site-logo-inner">
-                    <a href="/" rel="home" className="main-logo">
+                    <a href={`${basePath}/`} rel="home" className="main-logo">
                       <img
                         id="logo_header"
                         src={`${basePath}/icon/lg-indotech.png`}

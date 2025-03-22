@@ -24,7 +24,7 @@ export default function Hero() {
                   variants={animations.fadeUp}
                   initial="hidden"
                   whileInView="visible">
-                  <p data--delay="0.1s" className=" fadeInUp">
+                  <p>
                     A technology company specializing in software development,
                     digital marketing, social media management, video
                     production, and innovation in the digital and fintech
@@ -34,15 +34,13 @@ export default function Hero() {
                     finance.
                   </p>
                 </motion.div>
-                <div
-                  data--delay="0.2s"
-                  className=" fadeInUp flat-button flex justify-center">
+                <div className="  flat-button flex justify-center">
                   <motion.div
                     variants={animations.scaleUp}
                     initial="hidden"
                     whileInView="visible">
                     <a
-                      href="/about/#benefit"
+                      href={`${basePath}/about/#benefit`}
                       className="tf-button style-1 h50 w190">
                       Get started <i className="icon-arrow-up-right2"></i>
                     </a>
