@@ -72,18 +72,10 @@ export default function Detail() {
                       <img src={product.img} alt="" />
                     </a>
                   </div>
-
-                  {/* <div className="featured-countdown text-black">
-                  <span className="js-countdown">
-                    <Link className="text-black" href="">
-                      View Apps
-                    </Link>
-                  </span>
-                </div> */}
                 </div>
               </div>
               <div className="col-md-6">
-                <div className=" fadeInRight infor-product">
+                <div className="  infor-product">
                   <div className="text">
                     Indotech Digital Group{" "}
                     <Icon
@@ -100,7 +92,7 @@ export default function Detail() {
                       {" "}
                       <div className="avatar">
                         <img
-                          src={`${basePath}icon/ic-indotech.png`}
+                          src={`${basePath}/icon/cat-indotech.jpeg`}
                           alt="Image"
                         />
                       </div>
@@ -110,24 +102,28 @@ export default function Detail() {
                       </div>
                     </div>
 
-                    <div className="meta mb-20">
-                      <div
+                    <div className="meta mb-20 cursor-pointer">
+                      <Link
+                        href={product.url}
                         className="meta-item view"
-                        style={{ cursor: "pointer" }}>
+                        target="_blank">
                         <Icon
                           icon="fluent:preview-link-16-regular"
                           width="16"
                           height="16"
-                          style={{ color: "#ffffff" }}
                         />
                         View Apps
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
-                <div
-                  data--delay="0s"
-                  className=" fadeInRight product-item time-sales">
+
+                {/* tag */}
+                {/* <div className="infor-product mb-30 ">
+                  <h6 className="text">#Custom Price #test</h6>
+                </div> */}
+
+                <div className="product-item time-sales">
                   <h6>
                     <Icon
                       icon="famicons:pricetag-outline"

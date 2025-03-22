@@ -45,14 +45,12 @@ export default function card({ product, openModal }) {
                 className="px-3 py-3 d-flex items-center justify-content-center"
                 style={{ background: "#DDF247", borderRadius: "10px" }}
                 onClick={() => openModal(product.id)}>
-                <span>
-                  <Icon
-                    icon="prime:cart-arrow-down"
-                    width="24"
-                    height="24"
-                    style={{ color: "#000000" }}
-                  />
-                </span>
+                <Icon
+                  icon="prime:cart-arrow-down"
+                  width="24"
+                  height="24"
+                  style={{ color: "#000000" }}
+                />
               </button>
             </div>
           </div>

@@ -6,16 +6,10 @@ export default function Card({ data, openModal }) {
     <>
       <div className="tf-card-box">
         <div className="card-media">
-          <a href="#">
+          <a href={`/products/${data.id}`}>
             <img src={data.img} alt="" />
           </a>
-          <span className="wishlist-button icon-heart"></span>
-          <div className="featured-countdown">
-            <span
-              className="js-countdown"
-              data-timer="7500"
-              data-labels="d,h,m,s"></span>
-          </div>
+
           <div className="button-place-bid">
             <button
               onClick={() => openModal(data.id)}

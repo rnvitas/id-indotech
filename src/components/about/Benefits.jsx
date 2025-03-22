@@ -8,37 +8,37 @@ export default function Benefits() {
     {
       id: 1,
       title: "Advanced Software Development",
-      img: `${basePath}/about/perspective_matte-449-128x128.png`,
+      img: `${basePath}/about/Software_Development.png`,
       desc: "We build cutting-edge software tailored to your business needs, ensuring efficiency and innovation.",
     },
     {
       id: 2,
       title: "Strategic Digital Marketing",
-      img: `${basePath}/about/perspective_matte-230-128x128.png`,
+      img: `${basePath}/about/Marketing.png`,
       desc: "Our data-driven marketing solutions help you reach the right audience and maximize engagement.",
     },
     {
       id: 3,
       title: "Effective Social Media Management",
-      img: `${basePath}/about/perspective_matte-24-128x128.png`,
+      img: `${basePath}/about/Social_Media.png`,
       desc: "We create impactful social media strategies to enhance your brand presence and audience interaction.",
     },
     {
       id: 4,
       title: "High-Quality Video Production",
-      img: `${basePath}/about/perspective_matte-20-128x128.png`,
+      img: `${basePath}/about/Video_Production.png`,
       desc: "Engaging visual content that tells your story and captivates your audience.",
     },
     {
       id: 5,
       title: "Fintech & Digital Innovation",
-      img: `${basePath}/about/perspective_matte-437-128x128.png`,
+      img: `${basePath}/about/Fintech.png`,
       desc: "Pioneering solutions in financial technology to drive digital transformation.",
     },
     {
       id: 6,
       title: "Industry-Wide Expertise",
-      img: `${basePath}/about/perspective_matte-460-128x128.png`,
+      img: `${basePath}/about/Industry.png`,
       desc: "From education to entertainment and finance, we deliver integrated digital solutions for various sectors.",
     },
   ];

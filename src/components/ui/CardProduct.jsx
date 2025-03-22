@@ -11,7 +11,7 @@ export default function CardProduct({ product, openModal }) {
         className=" fadeInUp col-xl-3 col-lg-4 col-md-6 col-sm-6">
         <div className="tf-card-box style-1">
           <div className="card-media">
-            <a href="#">
+            <a href={`/products/${product.id}`}>
               <img src={product.img} alt="" />
             </a>
 
